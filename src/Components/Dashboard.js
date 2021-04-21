@@ -83,7 +83,7 @@ export default function Dashboard() {
                      <AccordionDetails>
                         <Typography style={{fontSize:'2rem'}}>
                            $ 2000
-                        <Button size="small" style={{marginLeft:'18.8rem'}}><EditIcon style={{ fontSize:'1.5rem'}}/></Button>
+                        <Button size="small" style={{marginRight:'1rem'}}><EditIcon style={{ fontSize:'1.5rem'}}/></Button>
 
                         </Typography>
 
