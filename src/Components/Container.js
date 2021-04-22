@@ -104,14 +104,14 @@ export default function FullWidthTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <Doughnut/>
+          <Doughnut style={{width:'23rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        <Doughnut/>
+        <Doughnut style={{width:'23rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} />
 
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-        <Doughnut/>
+        <Doughnut style={{width:'23rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} />
 
         </TabPanel>
       </SwipeableViews>
