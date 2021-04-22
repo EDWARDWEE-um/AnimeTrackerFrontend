@@ -1,15 +1,13 @@
 
 import Dashboard from './Components/Dashboard'
-import Doughnut from './Components/Doughnut'
+import Container from './Components/Container'
 
 
 function App() {
   return (
     <div >
        <Dashboard/>
-       <Doughnut/>
-       <Doughnut/>
-       <Doughnut/>
+       <Container/>
     </div>
   );
 }
