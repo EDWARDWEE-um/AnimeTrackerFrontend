@@ -8,6 +8,8 @@ function App() {
     <div >
        <Dashboard/>
        <Doughnut/>
+       <Doughnut/>
+       <Doughnut/>
     </div>
   );
 }
