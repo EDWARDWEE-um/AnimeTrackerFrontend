@@ -63,7 +63,7 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 500,
+    flexGrow:1,
   },
 }));
 
@@ -84,8 +84,19 @@ export default function FullWidthTabs() {
     <div className={classes.root}>
       <Mobile>
 
-      <AppBar position="static" color="default" style={{width:'26rem'}}>
-       
+      <AppBar position="static" color="default" >
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="fullWidth"
+          aria-label="full width tabs example"
+        >
+          <Tab label="Item One" {...a11yProps(0)} />
+          <Tab label="Item Two" {...a11yProps(1)} />
+          <Tab label="Item Three" {...a11yProps(2)} />
+        </Tabs>
       </AppBar>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -93,7 +104,7 @@ export default function FullWidthTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <Doughnut />
+          <Doughnut/>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
         <Doughnut/>
