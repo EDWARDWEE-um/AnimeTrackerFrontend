@@ -78,12 +78,11 @@ export default function Dashboard() {
             <Mobile>
                 <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                        <Typography style={{fontSize:'2rem', fontWeight:'bold'}}> Total Budget </Typography>
+                        <Typography style={{fontSize:'1rem', fontWeight:'bold'}}> Total Budget </Typography>
                     </AccordionSummary>
                      <AccordionDetails>
-                        <Typography style={{fontSize:'2rem'}}>
+                        <Typography style={{fontSize:'1rem'}}>
                            $ 2000
-                        <Button size="small" style={{marginRight:'1rem'}}><EditIcon style={{ fontSize:'1.5rem'}}/></Button>
 
                         </Typography>
 
@@ -92,12 +91,11 @@ export default function Dashboard() {
                  </Accordion>
                 <Accordion square expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                     <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                        <Typography style={{fontSize:'2rem', fontWeight:'bold'}}> Budget Left </Typography>
+                        <Typography style={{fontSize:'1rem', fontWeight:'bold'}}> Budget Left </Typography>
                     </AccordionSummary>
                      <AccordionDetails>
-                        <Typography style={{fontSize:'2rem'}}>
+                        <Typography style={{fontSize:'1rem'}}>
                            $ 1791
-                        <Button size="small" style={{marginLeft:'18.8rem'}}><EditIcon style={{ fontSize:'1.5rem'}}/></Button>
 
                         </Typography>
 
@@ -106,12 +104,11 @@ export default function Dashboard() {
                  </Accordion>
                 <Accordion square expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                     <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                        <Typography style={{fontSize:'2rem', fontWeight:'bold'}}> Total Transactions </Typography>
+                        <Typography style={{fontSize:'1rem', fontWeight:'bold'}}> Total Transactions </Typography>
                     </AccordionSummary>
                      <AccordionDetails>
-                        <Typography style={{fontSize:'2rem'}}>
+                        <Typography style={{fontSize:'1rem'}}>
                            4
-                        <Button size="small" style={{marginLeft:'18.8rem'}}><EditIcon style={{ fontSize:'1.5rem'}}/></Button>
                         </Typography>
 
                     </AccordionDetails>
