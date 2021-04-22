@@ -26,7 +26,7 @@ const Desktop = ({ children }) => {
     const isNotMobile = useMediaQuery({ minWidth: 768 })
     return isNotMobile ? children : null
   }
-
+  
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -84,7 +84,7 @@ export default function FullWidthTabs() {
     <div className={classes.root}>
       <Mobile>
 
-      <AppBar position="" color="default">
+      <AppBar position="static" color="default" style={{width:'25rem'}}>
         <Tabs
           value={value}
           onChange={handleChange}
