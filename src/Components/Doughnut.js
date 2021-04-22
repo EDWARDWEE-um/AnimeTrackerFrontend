@@ -76,7 +76,7 @@ export default function DoughnutChart() {
     return (
         <div>
         <Mobile>
-        <Card className={classes.root} style={{width:'20rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} >
+        <Card className={classes.root} style={{width:'23rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} >
         <CardContent>
         <div className='header'>
                 <h1 className='title'> Spending </h1>
