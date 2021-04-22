@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
@@ -16,7 +15,7 @@ const routing = (
 				<Route exact path="/" component={App} />
 				<Route exact path="/projects" component={Container} />
 			</Switch>
-      <Footer/>
+      		<Footer/>
 		</React.StrictMode>
 	</Router>
 );
