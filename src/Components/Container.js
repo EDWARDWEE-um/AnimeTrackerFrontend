@@ -85,18 +85,7 @@ export default function FullWidthTabs() {
       <Mobile>
 
       <AppBar position="static" color="default" style={{width:'26rem'}}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="fullWidth"
-          aria-label="full width tabs example"
-        >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs>
+       
       </AppBar>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -104,14 +93,14 @@ export default function FullWidthTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <Doughnut style={{width:'23rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} />
+          <Doughnut />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        <Doughnut style={{width:'23rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} />
+        <Doughnut/>
 
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-        <Doughnut style={{width:'23rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} />
+        <Doughnut/>
 
         </TabPanel>
       </SwipeableViews>
