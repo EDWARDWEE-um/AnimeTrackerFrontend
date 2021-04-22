@@ -5,8 +5,6 @@ import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import EditIcon from '@material-ui/icons/Edit';
 
 const Desktop = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 992 })
@@ -114,6 +112,7 @@ export default function Dashboard() {
                     </AccordionDetails>
 
                  </Accordion>
+            
             </Mobile>
             <Default>Not mobile (desktop or laptop or tablet)</Default>
         </div>
