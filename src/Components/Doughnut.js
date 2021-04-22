@@ -1,6 +1,26 @@
 import React from 'react'
 import { Doughnut } from 'react-chartjs-2';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import { useMediaQuery } from 'react-responsive'
 
+const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 992 })
+    return isDesktop ? children : null
+  }
+  const Tablet = ({ children }) => {
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
+    return isTablet ? children : null
+  }
+  const Mobile = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 767 })
+    return isMobile ? children : null
+  }
+  const Default = ({ children }) => {
+    const isNotMobile = useMediaQuery({ minWidth: 768 })
+    return isNotMobile ? children : null
+  }
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
@@ -27,16 +47,40 @@ const data = {
     },
   ],
 };
+const useStyles = makeStyles({
+    root: {
+      minWidth: 275,
+    },
+    bullet: {
+      display: 'inline-block',
+      margin: '0 2px',
+      transform: 'scale(0.8)',
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
+  });
 
 export default function DoughnutChart() {
+    const classes = useStyles();
+    const bull = <span className={classes.bullet}>•</span>;
     return (
         <div>
-            <div className='header'>
-            <h1 className='title'>Doughnut Chart</h1>
-            <div className='links'>
-            </div>
-            </div>
-            <Doughnut data={data} />
+        <Mobile>
+        <Card className={classes.root} style={{width:'30rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} >
+        <CardContent>
+        <div className='header'>
+                <h1 className='title'> Spending </h1>
+                <div className='links'>
+                </div>
+                </div>
+                <Doughnut data={data} />
+        </CardContent>
+        </Card>
+        </Mobile>
         </div>
     )
 }
