@@ -3,24 +3,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { useMediaQuery } from 'react-responsive'
 
-const Desktop = ({ children }) => {
-    const isDesktop = useMediaQuery({ minWidth: 992 })
-    return isDesktop ? children : null
-  }
-  const Tablet = ({ children }) => {
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
-    return isTablet ? children : null
-  }
-  const Mobile = ({ children }) => {
-    const isMobile = useMediaQuery({ maxWidth: 767 })
-    return isMobile ? children : null
-  }
-  const Default = ({ children }) => {
-    const isNotMobile = useMediaQuery({ minWidth: 768 })
-    return isNotMobile ? children : null
-  }
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
@@ -75,7 +58,6 @@ export default function DoughnutChart() {
     const bull = <span className={classes.bullet}>•</span>;
     return (
         <div>
-        <Mobile>
         <Card className={classes.root} style={{width:'23rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} >
         <CardContent>
         <div className='header'>
@@ -86,7 +68,6 @@ export default function DoughnutChart() {
                 <Doughnut data={data} />
         </CardContent>
         </Card>
-        </Mobile>
         </div>
     )
 }
