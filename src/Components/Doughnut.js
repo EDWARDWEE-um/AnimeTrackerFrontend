@@ -75,7 +75,6 @@ export default function DoughnutChart() {
     const bull = <span className={classes.bullet}>•</span>;
     return (
         <div>
-        <Mobile>
         <Card className={classes.root} style={{width:'23rem' , marginLeft:'auto', marginRight:'auto',marginTop:'1rem'}} >
         <CardContent>
         <div className='header'>
@@ -86,7 +85,6 @@ export default function DoughnutChart() {
                 <Doughnut data={data} />
         </CardContent>
         </Card>
-        </Mobile>
         </div>
     )
 }
