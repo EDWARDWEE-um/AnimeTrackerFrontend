@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import Container from './Components/Container'
+import Expense from './Components/Expense'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 
@@ -13,7 +13,7 @@ const routing = (
 			<Header />
 			<Switch>
 				<Route exact path="/" component={App} />
-				<Route exact path="/projects" component={Container} />
+				<Route exact path="/expense" component={Expense}/>
 			</Switch>
       		<Footer/>
 		</React.StrictMode>

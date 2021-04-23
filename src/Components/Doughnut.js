@@ -4,23 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { useMediaQuery } from 'react-responsive'
+import { Container } from '@material-ui/core';
 
-const Desktop = ({ children }) => {
-    const isDesktop = useMediaQuery({ minWidth: 992 })
-    return isDesktop ? children : null
-  }
-  const Tablet = ({ children }) => {
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
-    return isTablet ? children : null
-  }
-  const Mobile = ({ children }) => {
-    const isMobile = useMediaQuery({ maxWidth: 767 })
-    return isMobile ? children : null
-  }
-  const Default = ({ children }) => {
-    const isNotMobile = useMediaQuery({ minWidth: 768 })
-    return isNotMobile ? children : null
-  }
+
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
@@ -51,11 +37,13 @@ const data = {
       ],
       borderWidth: 1,
     },
+    
   ],
+  
 };
 const useStyles = makeStyles({
     root: {
-      minWidth: 275,
+      minWidth: 100,
     },
     bullet: {
       display: 'inline-block',
@@ -63,11 +51,16 @@ const useStyles = makeStyles({
       transform: 'scale(0.8)',
     },
     title: {
-      fontSize: 14,
+      fontSize: '2rem',
+      marginLeft:'auto',
+      marginRight:'auto',
     },
     pos: {
       marginBottom: 12,
     },
+
+   
+
   });
 
 export default function DoughnutChart() {
@@ -78,11 +71,11 @@ export default function DoughnutChart() {
         <Card className={classes.root} style={{}} >
         <CardContent>
         <div className='header'>
-                <h1 className='title'> Spending </h1>
+                <h1 className={classes.title}> Spending </h1>
                 <div className='links'>
                 </div>
                 </div>
-                <Doughnut data={data} />
+                <Doughnut data={data}  options={{ responsive: true , maintainAspectRatio: true, }}/>
         </CardContent>
         </Card>
         </div>
