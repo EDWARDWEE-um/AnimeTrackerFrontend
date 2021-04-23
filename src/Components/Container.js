@@ -8,25 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Doughnut from './Doughnut';
-import { useMediaQuery } from 'react-responsive'
 
-const Desktop = ({ children }) => {
-    const isDesktop = useMediaQuery({ minWidth: 992 })
-    return isDesktop ? children : null
-  }
-  const Tablet = ({ children }) => {
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
-    return isTablet ? children : null
-  }
-  const Mobile = ({ children }) => {
-    const isMobile = useMediaQuery({ maxWidth: 767 })
-    return isMobile ? children : null
-  }
-  const Default = ({ children }) => {
-    const isNotMobile = useMediaQuery({ minWidth: 768 })
-    return isNotMobile ? children : null
-  }
-  
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -82,7 +64,6 @@ export default function FullWidthTabs() {
 
   return (
     <div className={classes.root}>
-      <Mobile>
 
       <AppBar position="static" color="default" >
         <Tabs
@@ -115,7 +96,7 @@ export default function FullWidthTabs() {
 
         </TabPanel>
       </SwipeableViews>
-      </Mobile>
+    
 
     </div>
   );
