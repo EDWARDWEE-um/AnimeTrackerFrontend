@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CardMedia from '@material-ui/core/CardMedia';
 
 const useStyles = makeStyles({
   root: {
@@ -29,6 +30,7 @@ export default function SimpleCard() {
 
   return (
     <Card className={classes.root}>
+    <CardMedia image="https://static.wikia.nocookie.net/towerofsaviors/images/3/39/2680i.png/revision/latest/scale-to-width-down/100?cb=20210415114656"  style={{ height: "7rem" }}/>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Total Budget
