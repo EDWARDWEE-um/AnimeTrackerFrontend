@@ -1,28 +1,19 @@
 import React from 'react'
-import { useMediaQuery } from 'react-responsive'
 import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
-const Desktop = ({ children }) => {
-    const isDesktop = useMediaQuery({ minWidth: 992 })
-    return isDesktop ? children : null
-  }
-  const Tablet = ({ children }) => {
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
-    return isTablet ? children : null
-  }
-  const Mobile = ({ children }) => {
-    const isMobile = useMediaQuery({ maxWidth: 767 })
-    return isMobile ? children : null
-  }
-  const Default = ({ children }) => {
-    const isNotMobile = useMediaQuery({ minWidth: 768 })
-    return isNotMobile ? children : null
-  }
-  const Accordion = withStyles({
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+   
+}
+}));
+
+const Accordion = withStyles({
     root: {
       border: '1px solid rgba(0, 0, 0, .125)',
       boxShadow: 'none',
@@ -65,15 +56,12 @@ const Desktop = ({ children }) => {
 
 export default function Dashboard() {
     const [expanded, setExpanded] = React.useState('panel1');
-
+    const classes = useStyles();
     const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
     };
     return (
-        <div>
-            <Desktop>Desktop or laptop</Desktop>
-            <Tablet>Tablet</Tablet>
-            <Mobile>
+        <div className={classes.root}>
                 <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                         <Typography style={{fontSize:'1rem', fontWeight:'bold'}}> Total Budget </Typography>
@@ -113,8 +101,6 @@ export default function Dashboard() {
 
                  </Accordion>
             
-            </Mobile>
-            <Default>Not mobile (desktop or laptop or tablet)</Default>
         </div>
     )
 }

@@ -22,6 +22,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { useMediaQuery } from 'react-responsive'
 
+
 const Desktop = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 992 })
     return isDesktop ? children : null
@@ -212,6 +213,7 @@ EnhancedTableToolbar.propTypes = {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    flexGrow: 1,
   },
   paper: {
     width: '100%',
