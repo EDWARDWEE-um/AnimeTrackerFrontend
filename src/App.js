@@ -25,6 +25,7 @@ function App() {
 			.then(res => res.json());
 
 		SetAnimeList(temp.results);
+    console.log(temp.results)
 	}
 
 	useEffect(() => {
