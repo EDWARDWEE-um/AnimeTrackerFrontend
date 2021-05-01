@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import AnimeCard from './AnimeCard';
+import SampleCard from './SampleCard';
 import { useMediaQuery } from 'react-responsive'
 
 const Desktop = ({ children }) => {
@@ -46,6 +47,11 @@ export default function BasicTextFields(props) {
 		<div >
 				{props.animeList.map(anime => (
 					<AnimeCard
+						anime={anime}
+						key={anime.mal_id} />
+				))}
+				{props.animeList.map(anime => (
+					<SampleCard
 						anime={anime}
 						key={anime.mal_id} />
 				))}

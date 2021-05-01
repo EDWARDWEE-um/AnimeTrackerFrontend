@@ -19,14 +19,15 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: '20rem',
+    maxHeight:'50rem',
     flexGrow: 1,
     
   },
   media: {
-    height: 550,
+    height: '25rem',
     width: '100%',
-    objectFit: 'cover'
+    objectFit:'contain',
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -54,18 +55,8 @@ export default function RecipeReviewCard({anime}) {
   return (
     <Card className={classes.root} style={{marginLeft:'auto', marginRight:'auto', marginBottom:'2rem' , width:'50vh'}}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
         title={ anime.title }
-        subheader="September 14, 2016"
+        subheader={'Ratings : '+ anime.score}
       />
       <CardMedia
         className={classes.media}
