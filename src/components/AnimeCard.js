@@ -23,8 +23,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    height: 550,
+    width: '100%',
+    objectFit: 'cover'
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -50,7 +51,7 @@ export default function RecipeReviewCard({anime}) {
   };
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} style={{marginLeft:'auto', marginRight:'auto', marginBottom:'2rem'}}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
@@ -69,6 +70,7 @@ export default function RecipeReviewCard({anime}) {
         className={classes.media}
         image={anime.image_url}
         title={anime.name}
+      
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
