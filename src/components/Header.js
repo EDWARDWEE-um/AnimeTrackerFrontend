@@ -8,7 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import InfoIcon from '@material-ui/icons/Info';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -57,9 +57,8 @@ background: 'linear-gradient(to right, #243B55, #141E30)' /* W3C, IE 10+/ Edge, 
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}> <a href="/" style={{color:'black', textDecoration:'none'}} > Profile </a></MenuItem>
+        <MenuItem onClick={handleClose}> <a href="/search" style={{color:'black', textDecoration:'none'}} > Search </a></MenuItem>
         <MenuItem onClick={handleClose}><a href="/resume" style={{color:'black', textDecoration:'none'}} > Resume </a></MenuItem>
-        <MenuItem onClick={handleClose}><a href="/projects" style={{color:'black', textDecoration:'none'}} > Project </a></MenuItem>
       </Menu>
  
 
