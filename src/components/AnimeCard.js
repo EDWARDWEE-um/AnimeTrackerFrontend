@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
     flexGrow: 1,
+    
   },
   media: {
     height: 550,
@@ -51,7 +52,7 @@ export default function RecipeReviewCard({anime}) {
   };
 
   return (
-    <Card className={classes.root} style={{marginLeft:'auto', marginRight:'auto', marginBottom:'2rem'}}>
+    <Card className={classes.root} style={{marginLeft:'auto', marginRight:'auto', marginBottom:'2rem' , width:'50vh'}}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
