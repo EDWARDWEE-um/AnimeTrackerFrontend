@@ -1,8 +1,9 @@
-import React ,{ useContext }from 'react';
+import React ,{ useState  }from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { Button } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -21,10 +22,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 
+
  function ButtonAppBar(props) {
   const classes = useStyles();
- 
-  return (
+  const [isLoggedIn, setLogin] = useState((localStorage.getItem('access_token')!=null));
+
+  if(isLoggedIn){
+    return (
       
       <div className={classes.root}>
         <AppBar position="static" style={{background: '#141E30',  /* fallback for old browsers */
@@ -36,11 +40,31 @@ const useStyles = makeStyles((theme) => ({
           <Typography variant="h6" className={classes.title}>
               <a style={{color:'white',textDecoration:'none'}} href="/">THE ANIME TO DO LIST</a>
             </Typography>   
-           
+           <Button onClick={()=>{setLogin(false)}} style={{color:'white'}}> Logout </Button>
           </Toolbar>
         </AppBar>
       </div>
     );
+  }else{
+    return (
+      
+      <div className={classes.root}>
+        <AppBar position="static" style={{background: '#141E30',  /* fallback for old browsers */
+          background: '-webkit-linear-gradient(to right, #243B55, #141E30)',  /* Chrome 10-25, Safari 5.1-6 */
+          background: 'linear-gradient(to right, #243B55, #141E30)' /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+          }}>
+          <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+              <a style={{color:'white',textDecoration:'none'}} href="/">THE ANIME TO DO LIST</a>
+            </Typography>   
+           <Button onClick={()=>setLogin(true)} style={{color:'white'}}> Login </Button>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
+  
  
 }
 
