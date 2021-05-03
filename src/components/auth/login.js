@@ -66,7 +66,7 @@ export default function SignIn(props) {
 				axiosInstance.defaults.headers['Authorization'] =
 					'JWT ' + localStorage.getItem('access_token');
 				auth.login(() => {
-						props.history.push("/app");
+						props.history.push("/search");
 					  });
 				//console.log(res);
 				//console.log(res.data);

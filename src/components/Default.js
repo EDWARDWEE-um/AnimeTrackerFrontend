@@ -17,7 +17,6 @@ export default function Default() {
 
     return (
         <div>
-			<Header/>
 				<h1 style={{textAlign:"center"}}>🔥🔥 Top Anime 🔥🔥  </h1>
 				{topAnime.map(anime => (
 					<AnimeCard

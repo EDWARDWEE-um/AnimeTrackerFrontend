@@ -5,6 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
 import auth from "./auth/auth";
+import SearchIcon from '@material-ui/icons/Search';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,13 +38,14 @@ const useStyles = makeStyles((theme) => ({
           }}>
           <Toolbar>
           <Typography variant="h6" className={classes.title}>
-              <a style={{color:'white',textDecoration:'none'}} href="/">THE ANIME TO DO LIST</a>
+              <a style={{color:'white',textDecoration:'none'}} href="/app">ANIME TRACKER</a>
             </Typography>   
-           <Button  href="/logout" onClick={() => {
+            <Button href="/search" style={{color:'white'}}> <SearchIcon/> </Button>
+            <Button  href="/logout" onClick={() => {
           auth.logout(() => {
-            props.history.push("/app");
+            props.history.push("/");
           });
-        }} style={{color:'white'}}> Logout </Button>
+        }} style={{color:'white'}}> <ExitToAppIcon/> </Button>
           </Toolbar>
         </AppBar>
       </div>

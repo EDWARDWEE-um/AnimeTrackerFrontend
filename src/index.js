@@ -6,27 +6,31 @@ import { Route, BrowserRouter , Switch } from 'react-router-dom';
 import Register from './components/auth/register';
 import Login from './components/auth/login';
 import Logout from './components/auth/logout';
-import React, { Fragment , useState, useEffect } from 'react'
 import { ProtectedRoute } from "./components/auth/protectedRoute";
 
+import React, { Component } from 'react'
+
+export default class Index extends Component {
 
 
-export default function Index() {
- 
-  
-  console.log(window.location.pathname)
 
-  return (
-    <div>
-       <Switch>
+  render() {
+    return (
+      <div>
+         <Switch>
         <Route exact path="/" component={Login} />
+        <Route exact path="/register" component={Register} />
         <ProtectedRoute exact path="/app" component={App} />
         <ProtectedRoute exact path="/logout" component={Logout} />
+        <ProtectedRoute exact path="/search" component={Search} />
         <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>
-    </div>
-  )
+      </div>
+    )
+  }
 }
+
+
 
 
 

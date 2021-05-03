@@ -5,11 +5,14 @@ class Auth {
   
     login(cb) {
       this.authenticated = true;
+      localStorage.setItem('isLoggedIn', this.authenticated)
       cb();
     }
   
     logout(cb) {
       this.authenticated = false;
+      localStorage.removeItem('isLoggedIn')
+
       cb();
     }
   

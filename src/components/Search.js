@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import MainContent from './MainContent';
-
+import Header from './Header'
 export default function Search() {
     const [animeList, SetAnimeList] = useState([]);
 	const [topAnime, SetTopAnime] = useState([]);
@@ -35,7 +35,7 @@ export default function Search() {
 	return (
 		<div className="App">
 			<div className="content-wrap">
-			
+				<Header />
 				<MainContent
 					HandleSearch={HandleSearch}
 					search={search}

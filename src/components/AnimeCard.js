@@ -1,23 +1,20 @@
 
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import InfoIcon from '@material-ui/icons/Info';
 import MovieIcon from '@material-ui/icons/Movie';
+import { useHistory } from 'react-router-dom';
+import axiosInstance from '../axios';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,10 +49,24 @@ const useStyles = makeStyles((theme) => ({
 export default function RecipeReviewCard({anime}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+	const history = useHistory();
+  console.log(anime)
+  const handleSubmit = (e) => {
+		e.preventDefault();
+		axiosInstance
+			.post(`anime/create/`, {
+				title: anime.title,
+        type: anime.type,
+        episodes:anime.episodes,
+        image_url:anime.image_url,
+        url:anime.url,
+        synopsis: anime.synopsis,
+        score: anime.score,
+			})
+			.then((res) => {
+				history.push('/app');
+			});
+	};
 
   return (
     <Card className={classes.root} style={{marginLeft:'auto', marginRight:'auto', marginBottom:'2rem' , width:'50vh'}}>
@@ -75,7 +86,7 @@ export default function RecipeReviewCard({anime}) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-      <IconButton aria-label="add to favorites" >
+      <IconButton aria-label="add to favorites" onClick={handleSubmit}>
           <FavoriteIcon />
         </IconButton>
       <IconButton aria-label="share" href={anime.url} target='blank' style={{marginLeft:'7rem'}}>
