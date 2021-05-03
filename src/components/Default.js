@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import AnimeCard from './AnimeCard';
+import Header from './Header';
 
 export default function Default() {
 	const [topAnime, SetTopAnime] = useState([]);
@@ -16,6 +17,7 @@ export default function Default() {
 
     return (
         <div>
+			<Header/>
 				<h1 style={{textAlign:"center"}}>🔥🔥 Top Anime 🔥🔥  </h1>
 				{topAnime.map(anime => (
 					<AnimeCard

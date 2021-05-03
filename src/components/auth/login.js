@@ -13,7 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import auth from "./auth";
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export default function SignIn() {
+export default function SignIn(props) {
 	const history = useHistory();
 	const initialFormData = Object.freeze({
 		email: '',
@@ -65,7 +65,9 @@ export default function SignIn() {
 				localStorage.setItem('refresh_token', res.data.refresh);
 				axiosInstance.defaults.headers['Authorization'] =
 					'JWT ' + localStorage.getItem('access_token');
-				history.push('/');
+				auth.login(() => {
+						props.history.push("/app");
+					  });
 				//console.log(res);
 				//console.log(res.data);
 			});
