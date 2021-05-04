@@ -46,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RecipeReviewCard({anime}) {
+
+export default function AnimeCard({anime}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 	const history = useHistory();
@@ -62,11 +63,14 @@ export default function RecipeReviewCard({anime}) {
         url:anime.url,
         synopsis: anime.synopsis,
         score: anime.score,
+        author: localStorage.getItem('user'),
 			})
 			.then((res) => {
 				history.push('/app');
 			});
 	};
+
+
 
   return (
     <Card className={classes.root} style={{marginLeft:'auto', marginRight:'auto', marginBottom:'2rem' , width:'50vh'}}>
