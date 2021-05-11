@@ -1,5 +1,5 @@
 import React ,{ useEffect, useState }  from 'react'
-import AnimeCard from './AnimeCard'
+import APICard from './APIAnimeCard'
 import axiosInstance from '../axios';
 
 
@@ -9,16 +9,16 @@ export default function AnimeList() {
 	});
 
     useEffect(() => {
-		axiosInstance.get(`Death-Note/`).then((res) => {
+		axiosInstance.get(`anime/`).then((res) => {
 			const allPosts = res.data;
 			setAppState({ animelist: allPosts });
-			console.log(res.data);
+			console.log(allPosts);
 		});
 	}, [setAppState]);
 
     return (
         <div>
-            <AnimeCard animelist={appState.anime} />
+            <APICard anime={appState.animelist} />
         </div>
     )
 }

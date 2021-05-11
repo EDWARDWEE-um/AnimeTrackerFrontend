@@ -14,7 +14,7 @@ import InfoIcon from '@material-ui/icons/Info';
 import MovieIcon from '@material-ui/icons/Movie';
 import { useHistory } from 'react-router-dom';
 import axiosInstance from '../axios';
-
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,61 +47,55 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function AnimeCard({anime}) {
+export default function AnimeCard(props) {
   const classes = useStyles();
 	const history = useHistory();
-  const handleSubmit = (e) => {
-		e.preventDefault();
-		axiosInstance
-			.post(`anime/`, {
-				title: anime.title,
-        type: anime.type,
-        episodes:anime.episodes,
-        image_url:anime.image_url,
-        url:anime.url,
-        synopsis: anime.synopsis,
-        score: anime.score,
-        author: localStorage.getItem('user'),
-			})
-			.then((res) => {
-				history.push('/app');
-			});
-	};
+ 
+  const { anime } = props;
 
+  console.log(anime)
 
-
+  if (!anime || anime.length === 0) return <p>Cannot find any contact, sorry</p>;
   return (
+    <React.Fragment>
+      	{anime.map((anim) => {
+  return (
+    <div>
     <Card className={classes.root} style={{marginLeft:'auto', marginRight:'auto', marginBottom:'2rem' , width:'50vh'}}>
       <CardHeader
-        title={ anime.title } className={classes.header}
-        subheader={'Ratings : '+ anime.score  +"                    Type : " +anime.type}
+        title={ anim.title } className={classes.header}
+        subheader={'Ratings : '+ anim.score  +"                    Type : " +anim.type}
       />
       <CardMedia
         className={classes.media}
-        image={anime.image_url}
-        title={anime.name}
+        image={anim.image_url}
+        title={anim.name}
       
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {anime.synopsis}
+          {anim.synopsis}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-      <IconButton aria-label="add to favorites" onClick={handleSubmit}>
-          <FavoriteIcon />
+      <IconButton aria-label="add to favorites" >
+          <DeleteForeverIcon />
         </IconButton>
-      <IconButton aria-label="share" href={anime.url} target='blank' style={{marginLeft:'7rem'}}>
-          <MovieIcon />&nbsp;:&nbsp;{anime.episodes}
+      <IconButton aria-label="share" target='blank' style={{marginLeft:'7rem'}}>
+          <MovieIcon />&nbsp;:&nbsp;{anim.episodes}
         </IconButton>
        
-        <IconButton aria-label="share" href={anime.url}  style={{marginRight:'0'}} target='blank'>
+        <IconButton aria-label="share" href={anim.url}  style={{marginRight:'0'}} target='blank'>
           <InfoIcon />
         </IconButton>
         
       
       </CardActions>
      
-    </Card>
+      </Card>
+      </div>
+    	);
+	})}	
+	</React.Fragment>
   );
 }
