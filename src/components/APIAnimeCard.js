@@ -12,7 +12,7 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import InfoIcon from '@material-ui/icons/Info';
 import MovieIcon from '@material-ui/icons/Movie';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams  } from 'react-router-dom';
 import axiosInstance from '../axios';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '20rem',
     maxHeight:'50rem',
     flexGrow: 1,
+    marginLeft: 'auto',
+    marginRight: 'auto'
     
   },
   header:{
@@ -50,10 +52,27 @@ const useStyles = makeStyles((theme) => ({
 export default function AnimeCard(props) {
   const classes = useStyles();
 	const history = useHistory();
- 
+  const { id } = useParams();
   const { anime } = props;
+  console.log(id);
+  const handleDelete = (e) => {
+		e.preventDefault();
+		axiosInstance
+			.delete(`anime/delete/`+id)
+      .catch(function (error) {
+				if (error.response) {
+					console.log(error.response.data);
+					console.log(error.response.status);
+					console.log(error.response.headers);
+				}
+			}) 
+			.then(function () {
+        history.push({
+          pathname: '/animelist/',
+        });
+    });
+	};
 
-  console.log(anime)
 
   if (!anime || anime.length === 0) return <p>Cannot find any contact, sorry</p>;
   return (
@@ -61,7 +80,8 @@ export default function AnimeCard(props) {
       	{anime.map((anim) => {
   return (
     <div>
-    <Card className={classes.root} style={{marginLeft:'auto', marginRight:'auto', marginBottom:'2rem' , width:'50vh'}}>
+    <Card className={classes.root} key={anim.id}>
+      <h1>{anim.id}</h1>
       <CardHeader
         title={ anim.title } className={classes.header}
         subheader={'Ratings : '+ anim.score  +"                    Type : " +anim.type}
@@ -78,8 +98,8 @@ export default function AnimeCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-      <IconButton aria-label="add to favorites" >
-          <DeleteForeverIcon />
+      <IconButton aria-label="add to favorites" onClick={handleDelete} >
+          <DeleteForeverIcon  />
         </IconButton>
       <IconButton aria-label="share" target='blank' style={{marginLeft:'7rem'}}>
           <MovieIcon />&nbsp;:&nbsp;{anim.episodes}
