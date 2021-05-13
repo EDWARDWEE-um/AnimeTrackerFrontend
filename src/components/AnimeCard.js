@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React ,{ useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
 export default function AnimeCard({anime}) {
   const classes = useStyles();
 	const history = useHistory();
+  const [appState, setAppState] = useState({
+		animelist: null,
+	});
   const handleSubmit = (e) => {
 		e.preventDefault();
 		axiosInstance

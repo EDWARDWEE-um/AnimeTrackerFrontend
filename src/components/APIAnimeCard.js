@@ -56,9 +56,10 @@ export default function AnimeCard(props) {
   const { anime } = props;
   console.log(id);
   const handleDelete = (e) => {
-		e.preventDefault();
+    e.preventDefault();
+		console.log(e.currentTarget.value)
 		axiosInstance
-			.delete(`anime/delete/`+id)
+			.delete(`anime/`+e.currentTarget.value+`/`)
       .catch(function (error) {
 				if (error.response) {
 					console.log(error.response.data);
@@ -66,10 +67,9 @@ export default function AnimeCard(props) {
 					console.log(error.response.headers);
 				}
 			}) 
-			.then(function () {
-        history.push({
-          pathname: '/animelist/',
-        });
+			.then(()=> {
+        history.push('/animelist');
+        window.location.reload();
     });
 	};
 
@@ -81,7 +81,6 @@ export default function AnimeCard(props) {
   return (
     <div>
     <Card className={classes.root} key={anim.id}>
-      <h1>{anim.id}</h1>
       <CardHeader
         title={ anim.title } className={classes.header}
         subheader={'Ratings : '+ anim.score  +"                    Type : " +anim.type}
@@ -98,8 +97,8 @@ export default function AnimeCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-      <IconButton aria-label="add to favorites" onClick={handleDelete} >
-          <DeleteForeverIcon  />
+      <IconButton aria-label="add to favorites" value={anim.id} onClick={handleDelete} >
+          <DeleteForeverIcon  /> 
         </IconButton>
       <IconButton aria-label="share" target='blank' style={{marginLeft:'7rem'}}>
           <MovieIcon />&nbsp;:&nbsp;{anim.episodes}
