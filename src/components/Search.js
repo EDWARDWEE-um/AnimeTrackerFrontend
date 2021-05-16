@@ -42,6 +42,8 @@ export default function Search() {
 					SetSearch={SetSearch}
 					animeList={animeList} />
 
+					
+
 				
 			</div>
 		</div>

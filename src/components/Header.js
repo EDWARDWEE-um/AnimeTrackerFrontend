@@ -7,7 +7,7 @@ import { Button } from '@material-ui/core';
 import auth from "./auth/auth";
 import SearchIcon from '@material-ui/icons/Search';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-
+import Menu from './menu/Longmenu'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 },
   
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
   title: {
     flexGrow: 1,
@@ -39,13 +39,8 @@ const useStyles = makeStyles((theme) => ({
           <Toolbar>
           <Typography variant="h6" className={classes.title}>
               <a style={{color:'white',textDecoration:'none'}} href="/app">ANIME TRACKER</a>
-            </Typography>   
-            <Button href="/search" style={{color:'white'}}> <SearchIcon/> </Button>
-            <Button  href="/logout" onClick={() => {
-          auth.logout(() => {
-            props.history.push("/");
-          });
-        }} style={{color:'white'}}> <ExitToAppIcon/> </Button>
+          </Typography>  
+          <Menu></Menu> 
           </Toolbar>
         </AppBar>
       </div>

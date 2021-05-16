@@ -8,7 +8,7 @@ import Register from './components/auth/register';
 import Login from './components/auth/login';
 import Logout from './components/auth/logout';
 import { ProtectedRoute } from "./components/auth/protectedRoute";
-
+import Category from "./components/category/CategoryList"
 import React, { Component } from 'react'
 
 export default class Index extends Component {
@@ -25,6 +25,7 @@ export default class Index extends Component {
         <ProtectedRoute exact path="/logout" component={Logout} />
         <ProtectedRoute exact path="/search" component={Search} />
         <ProtectedRoute exact path="/animelist" component={AnimeList} />
+        <ProtectedRoute exact path="/category" component={Category} />
         <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>
       </div>

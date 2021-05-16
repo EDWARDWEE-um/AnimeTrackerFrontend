@@ -9,7 +9,7 @@ export default function Default() {
 		const temp = await fetch(`https://api.jikan.moe/v3/top/anime/1/bypopularity`)
 			.then(res => res.json());
 
-		SetTopAnime(temp.top.slice(0, 10));
+		SetTopAnime(temp.top.slice(0, 100));
 	}
 	useEffect(() => {
 		GetTopAnime();
@@ -24,6 +24,7 @@ export default function Default() {
 					key={anime.mal_id} />
 					
 				))}
+
         </div>
     )
 }

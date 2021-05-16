@@ -52,9 +52,7 @@ const useStyles = makeStyles((theme) => ({
 export default function AnimeCard(props) {
   const classes = useStyles();
 	const history = useHistory();
-  const { id } = useParams();
   const { anime } = props;
-  console.log(id);
   const handleDelete = (e) => {
     e.preventDefault();
 		console.log(e.currentTarget.value)
