@@ -67,7 +67,7 @@ export default function AnimeCard({anime}) {
         author: localStorage.getItem('user'),
 			})
 			.then((res) => {
-				history.push('/app');
+				
 			});
 	};
 
