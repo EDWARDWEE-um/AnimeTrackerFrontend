@@ -57,13 +57,13 @@ export default function SignUp() {
 		console.log(formData);
 
 		axiosInstance
-			.post(`user/create/`, {
+			.post(`user/`, {
 				email: formData.email,
 				user_name: formData.username,
 				password: formData.password,
 			})
 			.then((res) => {
-				history.push('/login');
+				history.push('/');
 				console.log(res);
 				console.log(res.data);
 			});
@@ -119,10 +119,7 @@ export default function SignUp() {
 							/>
 						</Grid>
 						<Grid item xs={12}>
-							<FormControlLabel
-								control={<Checkbox value="allowExtraEmails" color="primary" />}
-								label="I want to receive inspiration, marketing promotions and updates via email."
-							/>
+							
 						</Grid>
 					</Grid>
 					<Button
@@ -137,7 +134,7 @@ export default function SignUp() {
 					</Button>
 					<Grid container justify="flex-end">
 						<Grid item>
-							<Link href="#" variant="body2">
+							<Link href="/" variant="body2">
 								Already have an account? Sign in
 							</Link>
 						</Grid>
